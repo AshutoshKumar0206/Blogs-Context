@@ -5,7 +5,7 @@ const Header = ({ isDarkMode, toggleBackground }) => {
 <div className={`w-full border shadow-md py-3 fixed top-0 bg-white ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'}`}>
 <header className='text-center'>
     <span className='flex items-center justify-center'>
-    <h1 className='text-3xl font-bold uppercase'>Blogs-Context</h1>
+    <h1 className='text-3xl font-bold uppercase'>Tech-Tales</h1>
     <button onClick={toggleBackground} 
       className={`relative rounded-full w-20 ml-16 h-7 flex items-center px-2 ${isDarkMode ? 'bg-white text-black' : 'bg-slate-900 text-white'}`}>
         <div
