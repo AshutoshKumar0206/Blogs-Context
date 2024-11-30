@@ -1,16 +1,15 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-
-const BlogDetails = ({post}) => {
+const BlogDetails = ({post, isDarkMode}) => {
   return (
-    <div className=" ml-[100px] my-11 mt-[50px]">
+    <div className={`ml-[100px] my-11 mt-[50px] ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'}`}>
       <NavLink to={`/blog/${post.id}`}>
         <span className='font-bold text-lg'>{post.title}</span>
       </NavLink>
       <p className='text-sm mt-[4px]'>
         By
         <span className='italic'>{post.author}</span>
-        on{" "}
+        {" "}on{" "}
         <NavLink to={`/categories/${post.category.replaceAll(" ", "-")}`}>
           <span className='underline font-bold'>{post.category}</span>
         </NavLink>

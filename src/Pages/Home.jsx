@@ -3,13 +3,13 @@ import Blogs from '../components1/Blogs'
 import Pagination from '../components1/Pagination'
 import Header from '../components1/Header'
 
-const Home = () => {
+const Home = ({ isDarkMode, toggleBackground }) => {
   return (
-    <div>
-        <Header />
+    <div className={`${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'}`}>
+        <Header isDarkMode={isDarkMode} toggleBackground={toggleBackground}/>
         <div>
-            <Blogs />
-            <Pagination />
+            <Blogs isDarkMode={isDarkMode} toggleBackground={toggleBackground}/>
+            <Pagination isDarkMode={isDarkMode} toggleBackground={toggleBackground}/>
         </div>
     </div>
   )

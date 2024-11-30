@@ -5,7 +5,7 @@ import Header from "../components1/Header";
 import BlogDetails from "../components1/BlogDetails";
 import {baseUrl} from "../baseUrl";
 
-const BlogPage = () => {
+const BlogPage = ({isDarkMode, toggleBackground}) => {
   const [blog, setBlog] = useState(null);
   const [relatedblog, setRelatedblog] = useState([]);
   const location = useLocation();
@@ -40,8 +40,8 @@ const BlogPage = () => {
   }, [location.pathname]);//calls whenever blog id changes  
 
   return (
-    <div>
-      <Header />
+    <div className={`overflow-y-auto ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'}`}>
+      <Header isDarkMode={isDarkMode} toggleBackground={toggleBackground}/>
       <div>
         <button onClick={() => navigation(-1)}>Back</button>
       </div>
@@ -49,12 +49,12 @@ const BlogPage = () => {
         {loading ? (
           <p>Loading...</p>
         ) : blog ? (
-          <div>
-            <BlogDetails post={blog} />
-            <h2>Releated Blogs</h2>
+          <div className={`overflow-y-auto ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'}`}>
+            <BlogDetails post={blog} isDarkMode={isDarkMode} toggleBackground={toggleBackground}/>
+            <h2 className="flex justify-center items-center">Releated Blogs</h2>
             {relatedblog.map((post) => (
               <div key={post.id}>
-                <BlogDetails post={post} />
+                <BlogDetails post={post} isDarkMode={isDarkMode} toggleBackground={toggleBackground}/>
               </div>
             ))}
           </div>
